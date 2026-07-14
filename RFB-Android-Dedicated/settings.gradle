@@ -1,0 +1,47 @@
+pluginManagement {
+    repositories {
+        def proxyBase = System.getenv('RFB_MAVEN_PROXY_BASE')
+        if (proxyBase) {
+            maven {
+                url = uri("${proxyBase}/google")
+                allowInsecureProtocol = true
+                content {
+                    includeGroupByRegex 'com\\.android.*'
+                    includeGroupByRegex 'androidx\\..*'
+                    includeGroupByRegex 'com\\.google\\.android.*'
+                }
+            }
+            maven { url = uri("${proxyBase}/central"); allowInsecureProtocol = true }
+            maven { url = uri("${proxyBase}/plugins"); allowInsecureProtocol = true }
+        } else {
+            google()
+            mavenCentral()
+            gradlePluginPortal()
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        def proxyBase = System.getenv('RFB_MAVEN_PROXY_BASE')
+        if (proxyBase) {
+            maven {
+                url = uri("${proxyBase}/google")
+                allowInsecureProtocol = true
+                content {
+                    includeGroupByRegex 'com\\.android.*'
+                    includeGroupByRegex 'androidx\\..*'
+                    includeGroupByRegex 'com\\.google\\.android.*'
+                }
+            }
+            maven { url = uri("${proxyBase}/central"); allowInsecureProtocol = true }
+        } else {
+            google()
+            mavenCentral()
+        }
+    }
+}
+
+rootProject.name = 'RoguelikeFansBand-Android-Dedicated'
+include ':app'
