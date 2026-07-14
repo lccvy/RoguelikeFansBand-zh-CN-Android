@@ -12,3 +12,8 @@
 生成支持三种 ABI 的 Android APK；
 
 提供中文显示、图块、声音、触控 HUD、大键盘、存档槽、异常诊断等功能。
+
+
+原PC地址：https://github.com/UncleFvcker/RoguelikeFansBand-zh-CN
+
+感谢张荒唐丨大佬的汉化
